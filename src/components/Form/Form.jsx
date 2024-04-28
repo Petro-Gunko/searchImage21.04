@@ -6,7 +6,7 @@ export const Form = ({ onSubmit }) => {
 
   const [query, setQuery] = useState('')
 
-  const onChainge = (e) => {
+  const onChange = (e) => {
     setQuery(e.target.value)
   }
 
@@ -14,7 +14,6 @@ export const Form = ({ onSubmit }) => {
     e.preventDefault()
     onSubmit(query)
     setQuery('');
-
   }
 
   return (
@@ -25,7 +24,7 @@ export const Form = ({ onSubmit }) => {
 
       <input
         value={query}
-        onChange={onChainge}
+        onChange={onChange}
         className={style.input}
         placeholder="What do you want to write?"
         name="search"
