@@ -16,15 +16,21 @@ useEffect(()=> {
 }, [todos])
 
   const addTodo = (newTodo) => {
-    setTodos(prevTodo => {
-      return [...prevTodo, newTodo]
+    setTodos(prevTodos => {
+      return [...prevTodos, newTodo]
     })
   }
+
+const deleteTodo = (todoId) => {
+  setTodos(prevTodos => {
+    return prevTodos.filter((todo) => todo.id !== todoId)
+  })
+}
 
   return (<div>
     {todos.length === 0 && <Text textAlign="center">There are no any todos ...</Text>}
   
   <FormToDo onSubmit={addTodo} />
-  <TodoList todos={todos}/>
+  <TodoList todos={todos} onDelete={deleteTodo}/>
   </div>)
 };

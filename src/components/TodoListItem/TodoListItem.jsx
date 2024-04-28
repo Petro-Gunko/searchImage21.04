@@ -3,9 +3,8 @@ import {Text} from '../Text/Text'
 import { RiDeleteBinLine } from 'react-icons/ri';
 import style from './TodoListItem.module.css'
 
-export const TodoListItem = ({data}) => {
+export const TodoListItem = ({data, onDelete}) => {
 
- 
 
   return(
     <GridItem >
@@ -14,7 +13,7 @@ export const TodoListItem = ({data}) => {
       TODO 
     </Text>
     <Text> {data.text}</Text>
-    <button className={style.deleteButton} type="button">
+    <button className={style.deleteButton} type="button" onClick={()=>onDelete(data.id)}>
       <RiDeleteBinLine size={24} />
     </button>
   </div>
